@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .pole{
+            width: 306px;
+            height: 306px;
+            border: 1px solid black;
+            margin: auto;
+        }
+        .line{
+            width: 306px;
+            height: 102px;
+            display: flex;
+            flex-direction: row;
+        }
+        .block{
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            text-align: center;
+            line-height: 100px;
+            font-size: 50px;
+            cursor: pointer;
+            user-select: none;
+        }
+        #title{
+            width: 100px;
+            height: 30px;
+            margin: 20px auto 20px;
+            text-align: center;
+            font-size: 30px;
+        }
+        .but{
+            width: max-content;
+            height: max-content;
+            margin: auto;
+            text-align: center;
+        }
+        button{
+            width: 200px;
+            height: 30px;
+            font-size: 20px;
+        }
+        .text{
+            width: 380px;
+            height: max-content;
+            /* border: 1px solid black; */
+            margin: auto;
+            text-align:justify;
+            font-size: 20px;
+        }
+    </style>
+    <div class="pole">
+        <div class="line">
+            <div class="block" id="1" onclick="hod('1')"> </div>
+            <div class="block" id="2" onclick="hod('2')"> </div>
+            <div class="block" id="3" onclick="hod('3')"> </div>
+        </div>
+        <div class="line">
+            <div class="block" id="4" onclick="hod('4')"> </div>
+            <div class="block" id="5" onclick="hod('5')"> </div>
+            <div class="block" id="6" onclick="hod('6')"> </div>
+        </div>
+        <div class="line">
+            <div class="block" id="7" onclick="hod('7')"> </div>
+            <div class="block" id="8" onclick="hod('8')"> </div>
+            <div class="block" id="9" onclick="hod('9')"> </div>
+        </div>
+    </div>
+    <p id="title">Играй!</p>
+    <p class="but"><button onclick="javascript:window.location.reload ()" >Начать заново</button></p>
+    <div class="text">
+        <p>Если найдете баги - пишите в тг: @jenishbek</p>
+        <p>Режимы 4х4, 5х5 и тд в разработке, ждите обновлений.</p>
+    </div>
+    
+    <script>
+        var arrNum=[1,2,3,4,5,6,7,8];
+        var arrNumSort = arrNum.sort(function(){
+            return Math.random() - 0.5;
+        });
+        for(let i = 1; i<9;i++){
+            document.getElementById(i).innerHTML=arrNumSort[i-1];
+        }
+        
+        function hod(num){
+            
+            if(document.getElementById(num).innerHTML!=" "){
+                switch(num){
+                    case '1':
+                        if(document.getElementById(Number(num)+1).innerHTML==" "){
+                            document.getElementById(Number(num)+1).innerHTML=document.getElementById(num).innerHTML;
+                            document.getElementById(num).innerHTML=" ";
+                        } 
+                        if(document.getElementById(Number(num)+3).innerHTML==" "){
+                            document.getElementById(Number(num)+3).innerHTML=document.getElementById(num).innerHTML;
+                            document.getElementById(num).innerHTML=" ";
+                        }
+                    break;
+                    case '2':
+                        if(document.getElementById(Number(num)-1).innerHTML==" "){
+                            document.getElementById(Number(num)-1).innerHTML=document.getElementById(num).innerHTML;
+                            document.getElementById(num).innerHTML=" ";
+                        }
+                        if(document.getElementById(Number(num)+1).innerHTML==" "){
+                            document.getElementById(Number(num)+1).innerHTML=document.getElementById(num).innerHTML;
+                            document.getElementById(num).innerHTML=" ";
+                        } 
+                        if(document.getElementById(Number(num)+3).innerHTML==" "){
+                            document.getElementById(Number(num)+3).innerHTML=document.getElementById(num).innerHTML;
+                            document.getElementById(num).innerHTML=" ";
+                        }
+                    break;
+                    case '3':
+                        if(document.getElementById(Number(num)-1).innerHTML==" "){
+                            document.getElementById(Number(num)-1).innerHTML=document.getElementById(num).innerHTML;
+                            document.getElementById(num).innerHTML=" ";
+                        }
+                        if(document.getElementById(Number(num)+3).innerHTML==" "){
+                            document.getElementById(Number(num)+3).innerHTML=document.getElementById(num).innerHTML;
+                            document.getElementById(num).innerHTML=" ";
+                        }
+                    break;
+                    case '4':
+                        if(document.getElementById(Number(num)+1).innerHTML==" "){
+                            document.getElementById(Number(num)+1).innerHTML=document.getElementById(num).innerHTML;
+                            document.getElementById(num).innerHTML=" ";
+                        }
+                        if(document.getElementById(Number(num)+3).innerHTML==" "){
+                            document.getElementById(Number(num)+3).innerHTML=document.getElementById(num).innerHTML;
+                            document.getElementById(num).innerHTML=" ";
+                        }
+                        if(document.getElementById(Number(num)-3).innerHTML==" "){
+                            document.getElementById(Number(num)-3).innerHTML=document.getElementById(num).innerHTML;
+                            document.getElementById(num).innerHTML=" ";
+                        }
+                    break;
+                    case '5':
+                        if(document.getElementById(Number(num)-1).innerHTML==" "){
+                            document.getElementById(Number(num)-1).innerHTML=document.getElementById(num).innerHTML;
+                            document.getElementById(num).innerHTML=" ";
+                        }
+                        if(document.getElementById(Number(num)+1).innerHTML==" "){
+                            document.getElementById(Number(num)+1).innerHTML=document.getElementById(num).innerHTML;
+                            document.getElementById(num).innerHTML=" ";
+                        }
+                        if(document.getElementById(Number(num)+3).innerHTML==" "){
+                            document.getElementById(Number(num)+3).innerHTML=document.getElementById(num).innerHTML;
+                            document.getElementById(num).innerHTML=" ";
+                        }
+                        if(document.getElementById(Number(num)-3).innerHTML==" "){
+                            document.getElementById(Number(num)-3).innerHTML=document.getElementById(num).innerHTML;
+                            document.getElementById(num).innerHTML=" ";
+                        }
+                    break;
+                    case '6':
+                        if(document.getElementById(Number(num)-1).innerHTML==" "){
+                            document.getElementById(Number(num)-1).innerHTML=document.getElementById(num).innerHTML;
+                            document.getElementById(num).innerHTML=" ";
+                        }
+                        if(document.getElementById(Number(num)+3).innerHTML==" "){
+                            document.getElementById(Number(num)+3).innerHTML=document.getElementById(num).innerHTML;
+                            document.getElementById(num).innerHTML=" ";
+                        }
+                        if(document.getElementById(Number(num)-3).innerHTML==" "){
+                            document.getElementById(Number(num)-3).innerHTML=document.getElementById(num).innerHTML;
+                            document.getElementById(num).innerHTML=" ";
+                        }
+                    break;
+                    case '7':
+                        if(document.getElementById(Number(num)+1).innerHTML==" "){
+                            document.getElementById(Number(num)+1).innerHTML=document.getElementById(num).innerHTML;
+                            document.getElementById(num).innerHTML=" ";
+                        }
+                        if(document.getElementById(Number(num)-3).innerHTML==" "){
+                            document.getElementById(Number(num)-3).innerHTML=document.getElementById(num).innerHTML;
+                            document.getElementById(num).innerHTML=" ";
+                        }
+                    break;
+                    case '8':
+                        if(document.getElementById(Number(num)+1).innerHTML==" "){
+                            document.getElementById(Number(num)+1).innerHTML=document.getElementById(num).innerHTML;
+                            document.getElementById(num).innerHTML=" ";
+                        }
+                        if(document.getElementById(Number(num)-1).innerHTML==" "){
+                            document.getElementById(Number(num)-1).innerHTML=document.getElementById(num).innerHTML;
+                            document.getElementById(num).innerHTML=" ";
+                        }
+                        if(document.getElementById(Number(num)-3).innerHTML==" "){
+                            document.getElementById(Number(num)-3).innerHTML=document.getElementById(num).innerHTML;
+                            document.getElementById(num).innerHTML=" ";
+                        }
+                    break;
+                    case '9':
+                        if(document.getElementById(Number(num)-1).innerHTML==" "){
+                            document.getElementById(Number(num)-1).innerHTML=document.getElementById(num).innerHTML;
+                            document.getElementById(num).innerHTML=" ";
+                        }
+                        if(document.getElementById(Number(num)-3).innerHTML==" "){
+                            document.getElementById(Number(num)-3).innerHTML=document.getElementById(num).innerHTML;
+                            document.getElementById(num).innerHTML=" ";
+                        }
+                    break;
+                }
+            } 
+        }
+        var provVin = setInterval(function(){
+            var vin=0;
+            if(document.getElementById('1').innerHTML=="1") vin++;
+            if(document.getElementById('2').innerHTML=="2") vin++;
+            if(document.getElementById('3').innerHTML=="3") vin++;
+            if(document.getElementById('4').innerHTML=="4") vin++;
+            if(document.getElementById('5').innerHTML=="5") vin++;
+            if(document.getElementById('6').innerHTML=="6") vin++;
+            if(document.getElementById('7').innerHTML=="7") vin++;
+            if(document.getElementById('8').innerHTML=="8") vin++;
+            if(vin==8){
+                document.getElementById('title').innerHTML = 'Победа!';
+                clearInterval(provVin);
+            }
+        },100)
+    </script>
+</body>
+</html>
